@@ -30,17 +30,20 @@ while is_game_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_y()
 
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() > -320:
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320:
         ball.bounce_x()
+        score.r_point()
+
+    if ball.distance(l_paddle) < 50 and ball.xcor() > -320:
+        ball.bounce_x
+        score.l_point()
 
     if ball.xcor() > 390:
         ball.reset_position()
-        score.l_point()
-
-    
+        
     if ball.xcor() < -390:
         ball.reset_position()
-        score.r_point()
+        
 
     if score.l_score == 5 or score.r_score == 5:
         is_game_on = False
